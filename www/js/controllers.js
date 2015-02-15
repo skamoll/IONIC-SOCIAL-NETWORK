@@ -43,6 +43,7 @@ instance.controller('AppCtrl', function ($scope, $ionicModal, $timeout, data) {
                         alert("Ha iniciado sesión");
                         data = $scope.iduser;
                         console.log(data);
+                        window.localStorage.setItem("profile", JSON.stringify(data));
 
                     }else{
                         $scope.login=false;
@@ -69,6 +70,10 @@ instance.controller('CategoriesCtrl', function ($scope) {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 $scope.categories = JSON.parse(xmlhttp.responseText);
+
+                $scope.profile = JSON.parse(window.localStorage.getItem("profile"));
+                console.log("profile:"+$scope.profile);
+
             }
         }
         xmlhttp.open("GET", url, true);
@@ -112,6 +117,15 @@ instance.controller('CategorieCtrl', function ($scope, $stateParams) {
     });
 
 instance.controller("CameraController", function ($scope, $cordovaCamera, data) {
+
+        $scope.profile = JSON.parse(window.localStorage.getItem("profile"));
+        if ($scope.profile==null){
+            alert("You must be logged to use this feature ("+$scope.profile+")");
+        }else{
+            alert("Well done ("+$scope.profile+")");
+        }
+
+
 
         var xmlhttp = new XMLHttpRequest();
         var url = "http://piserver.dyndns.org/DAW/DIW/eng/webservice/photoservice.php?data=categ";

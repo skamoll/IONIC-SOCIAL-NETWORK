@@ -2,8 +2,11 @@
     <ion-content>
         <ion-list>
             <ion-item ng-repeat="categorie in categories" href="#/app/categories/{{categorie.idcategories}}">
-                {{categorie.catenom}}
-
+                <a class="item item-avatar" href="#/app/categories/{{categorie.idcategories}}">
+                    <img src=" {{categorie.categorieimg}}">
+                    <h2>{{categorie.catenom}} | {{categorie.total}} photos</h2>
+                    <p>{{categorie.description}}</p>
+                </a>
             </ion-item>
         </ion-list>
     </ion-content>

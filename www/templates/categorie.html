@@ -1,6 +1,10 @@
 <ion-view view-title="{{categorie[0].catenom}}">
   <ion-content>
-    <h1>{{categorie[0].catenom}} ({{photos.length}})</h1>
+      <div class="item item-avatar">
+          <img ng-src="{{categorie[0].categorieimg}}">
+          <h2>{{categorie[0].catenom}} ({{photos.length}})</h2>
+          <p>{{categorie[0].description}}</p>
+      </div>
     <ion-list>
         <ion-item ng-repeat="photo in photos">
 

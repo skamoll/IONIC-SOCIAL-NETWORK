@@ -40,14 +40,14 @@ instance.controller('AppCtrl', function ($scope, $ionicModal, $timeout, data) {
                         $scope.login = true;
                         $scope.iduser = resp[0].idusers;
                         $scope.username = $scope.loginData.username;
-                        alert("Ha iniciado sesión");
+                        alert("Login success!");
                         data = $scope.iduser;
                         console.log(data);
                         window.localStorage.setItem("profile", JSON.stringify(data));
 
                     }else{
                         $scope.login=false;
-                        alert("Usuario incorrecto");
+                        alert("Login fail");
                     }
                 }
             }
@@ -121,8 +121,6 @@ instance.controller("CameraController", function ($scope, $cordovaCamera, data) 
         $scope.profile = JSON.parse(window.localStorage.getItem("profile"));
         if ($scope.profile==null){
             alert("You must be logged to use this feature ("+$scope.profile+")");
-        }else{
-            alert("Well done ("+$scope.profile+")");
         }
 
 
@@ -179,7 +177,7 @@ instance.controller("CameraController", function ($scope, $cordovaCamera, data) 
                 var params = new Object();
                 params.photoname = $scope.name;
                 params.photodesc = $scope.desc;
-                params.iduser = data;
+                params.iduser = JSON.parse(window.localStorage.getItem("profile"));
                 params.idcat = $scope.selected.value;
                 options.params= params;
                 console.log(params.photoname,params.photodesc,params.iduser,params.idcat);
@@ -204,7 +202,7 @@ instance.controller("CameraController", function ($scope, $cordovaCamera, data) 
                     alert("error: "+error.code)
                 }
             }else{
-                alert("Debe iniciar sesión para publicar fotos");
+                alert("You must be logged to use this feature");
             }
         }
 

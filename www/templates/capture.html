@@ -1,0 +1,34 @@
+<ion-view view-title="Upload a photo">
+    <ion-pane>
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Upload a photo</h1>
+        </ion-header-bar>
+        <ion-content ng-controller="CameraController">
+            <img class="photocapture" ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+            <img class="photocapture" ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
+
+            <div class="list">
+                <label class="item item-input">
+                    <input ng-model="name" type="text" placeholder="Photo's Name">
+                </label>
+                <label class="item item-input">
+                    <textarea ng-model="desc" placeholder="Photo's Description"></textarea>
+                </label>
+            </div>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Category
+                </div>
+                <select ng-model="selected" ng-options="opt as opt.label for opt in categ"></select>
+            </label>
+            <div class="row">
+                <div class="col col-10"></div>
+                <div class="col col-35"><button class="button icon-left ion-camera" ng-click="takePhoto()">Take</button></div>
+                <div class="col col-10"></div>
+                <div class="col col-35"><button ng-show="name.length>0 && desc.length>0" class="button icon-left ion-checkmark" ng-click="uploadPhotoImage()">Save</button></div>
+                <div class="col col-10"></div>
+            </div>
+        </ion-content>
+    </ion-pane>
+</ion-view>
+

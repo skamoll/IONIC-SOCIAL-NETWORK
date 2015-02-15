@@ -1,0 +1,43 @@
+<ion-view view-title="{{photodetail.photoname}}">
+    <ion-content>
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img src="{{photodetail.useravatar}}">
+                <h2>{{photodetail.username}}</h2>
+                <p>{{photodetail.phodate}}</p>
+            </div>
+
+            <div class="item item-body">
+                <img class="full-image" src="{{photodetail.photourl}}">
+                <p>
+                    {{photodetail.photodesc}}
+                </p>
+                <p>
+                    <a href="#" class="subdued">1 Like</a>
+                    <a href="#" class="subdued">5 Comments</a>
+                </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-thumbsup"></i>
+                    Like
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i>
+                    Comment
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Share
+                </a>
+            </div>
+
+        </div>
+
+
+
+
+    </ion-content>
+</ion-view>

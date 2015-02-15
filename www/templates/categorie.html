@@ -1,0 +1,19 @@
+<ion-view view-title="{{categorie[0].catenom}}">
+  <ion-content>
+    <h1>{{categorie[0].catenom}} ({{photos.length}})</h1>
+    <ion-list>
+        <ion-item ng-repeat="photo in photos">
+
+            <div class="list">
+                <a class="item item-thumbnail-left" href="#/app/detail/{{photo.idphotos}}">
+                    <img ng-src="{{photo.photourl}}">
+                    <h2>{{photo.photoname}}</h2>
+                    <p>{{photo.photodesc}}</p>
+                    <p>by <span class="text-danger">{{photo.username}}</span> at {{photo.phodate}}</p>
+                </a>
+            </div>
+
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
